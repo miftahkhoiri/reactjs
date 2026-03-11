@@ -16,8 +16,8 @@ echo 'is followed by another command that retrieves the process ID (PID) value'
 echo 'of the previously run process (i.e. "npm start") and writes this value to'
 echo 'the file ".pidfile".'
 set -x
-npm start &
-sleep 1
+JENKINS_NODE_COOKIE=dontKillMe npm start -- --host 0.0.0.0 &
+sleep 5
 echo $! > .pidfile
 set +x
 
